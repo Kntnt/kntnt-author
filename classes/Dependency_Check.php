@@ -43,7 +43,7 @@ trait Dependency_Check {
     public static function unsatisfied_dependencies_message() {
         $msg = '';
         if ( $plugins = self::$unsatisfied_dependencies ) {
-            $n = count( $plugins );
+            $n = 0;
             foreach ( $plugins as &$plugin ) {
                 $n += count( $plugin );
                 $plugin = join( ' ' . __( 'or', 'kntnt' ) . ' ', $plugin );
