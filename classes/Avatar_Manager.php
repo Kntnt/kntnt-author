@@ -215,7 +215,7 @@ class Avatar_Manager {
         if ( empty( $args['url'] ) ) {
 
             if ( $user && ! $args['force_default'] ) {
-                $id = get_user_meta( $user->ID, 'kntnt-author-avatar', true );
+                $id = get_user_meta( $user->ID, 'portrait', true );
                 $args['found_avatar'] = true;
             }
             else {
