@@ -19,7 +19,7 @@ class ACF_Loader {
                 [
                     'key' => 'field_5f96b2373413f',
                     'label' => __( 'Picture', 'kntnt-author' ),
-                    'name' => 'kntnt-author-avatar',
+                    'name' => 'portrait',
                     'type' => 'image',
                     'instructions' => __( 'Portrait image with the author centered in the middle.', 'kntnt-author' ),
                     'required' => 0,
@@ -43,7 +43,7 @@ class ACF_Loader {
                 [
                     'key' => 'field_5fa9797bb51bc',
                     'label' => __( 'Biography', 'kntnt-author' ),
-                    'name' => 'kntnt-author-biography',
+                    'name' => 'biography',
                     'type' => 'textarea',
                     'instructions' => __( 'Biographical description of the author that can be shown at articles and the author archive.', 'kntnt-author' ),
                     'required' => 0,

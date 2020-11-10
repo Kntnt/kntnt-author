@@ -6,10 +6,14 @@ namespace Kntnt\Author;
 
 class User_Edit_Form_Fixer {
 
+    private $use_description_as_default = true;
+
     public function run() {
         add_action( 'user_edit_form_tag', [ $this, 'start' ] );
         add_action( 'show_user_profile', [ $this, 'stop' ] );
         add_action( 'edit_user_profile', [ $this, 'stop' ] );
+        add_action( 'acf/save_post', [ $this, 'save_post' ], 20, 1 );
+        add_action( 'acf/load_value/name=biography', [ $this, 'load_value' ], 5, 3 );
     }
 
     public function start() {
@@ -60,6 +64,33 @@ class User_Edit_Form_Fixer {
             $user_id = false; // Should never happen.
         }
         return $user_id;
+    }
+
+    public function save_post( $acf_id ) {
+
+        $user_id = (int) substr( $acf_id, 5 );
+
+        $this->use_description_as_default = false;
+        $biography = get_field( 'biography', $acf_id, false );
+        $this->use_description_as_default = true;
+
+        if ( $biography ) {
+            Plugin::debug( 'Updating biography for user with id = %s', $user_id );
+            update_user_meta( $user_id, 'description', $biography );
+        }
+        else {
+            Plugin::debug( 'Deleting biography for user with id = %s', $user_id );
+            delete_user_meta( $user_id, 'description' );
+        }
+
+    }
+
+    public function load_value( $value, $acf_id, $field ) {
+        if ( ! $value && $this->use_description_as_default ) {
+            $user_id = (int) substr( $acf_id, 5 );
+            $value = get_the_author_meta( 'description', $user_id );
+        }
+        return $value;
     }
 
 }
