@@ -36,8 +36,8 @@ class Settings extends Abstract_Settings {
 
     }
 
-    // Returns an array where keys are taxonomies machine name and values are
-    // corresponding name in clear text.
+    // Returns an array where keys are role slugs and values are corresponding
+    // role names.
     private function roles() {
         $roles = [];
         foreach ( wp_roles()->roles as $key => $role ) {
