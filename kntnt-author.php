@@ -8,7 +8,7 @@
  * Plugin URI:        https://www.kntnt.com/
  * GitHub Plugin URI: https://github.com/Kntnt/kntnt-post-import
  * Description:       Allows multiple authors and improves user edit form.
- * Version:           1.0.2
+ * Version:           1.0.3
  * Author:            Thomas Barregren
  * Author URI:        https://www.kntnt.com/
  * License:           GPL-3.0+
@@ -20,7 +20,7 @@
 namespace Kntnt\Author;
 
 // Uncomment following line to debug this plugin except the Importer class.
-define( 'KNTNT_AUTHOR_DEBUG', true );
+// define( 'KNTNT_AUTHOR_DEBUG', true );
 
 require 'autoload.php';
 
