@@ -7,7 +7,7 @@ namespace Kntnt\Author;
 class Settings extends Abstract_Settings {
 
     protected function menu_title() {
-        return __( 'Author Roles', 'kntnt-author' );
+        return __( 'Kntnt Author', 'kntnt-author' );
     }
 
     protected function fields() {
@@ -17,6 +17,15 @@ class Settings extends Abstract_Settings {
             'options' => $this->roles(),
             'label' => __( "Author roles", 'kntnt-author' ),
             'description' => __( 'Select author roles.', 'kntnt-author' ),
+        ];
+
+        // TODO: Replace this with an "Add media" button.
+        $fields['avatar-default-attachment'] = [
+            'type' => 'integer',
+            'min' => 1,
+            'default' => '',
+            'label' => __( "Default author portrait", 'kntnt-author' ),
+            'description' => __( 'ID of attachment with default author portrait.', 'kntnt-author' ),
         ];
 
         $fields['submit'] = [

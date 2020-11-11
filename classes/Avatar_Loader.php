@@ -181,7 +181,7 @@ class Avatar_Loader {
             }
 
             if ( ! $id ) {
-                $id = apply_filters( 'kntnt-avatar-default-attachment', get_option( 'kntnt-avatar-default-attachment' ), $args, $user );
+                $id = apply_filters( 'kntnt-avatar-default-attachment', Plugin::option('avatar-default-attachment' ), $args, $user );
             }
 
             if ( $id ) {
