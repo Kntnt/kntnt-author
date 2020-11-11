@@ -14,13 +14,14 @@ final class Plugin extends Abstract_Plugin {
         'any' => [
             'init' => [
                 'ACF_Loader',
-                'Avatar_Manager',
+                'Avatar_Loader',
             ],
         ],
         'admin' => [
             'init' => [
                 'Settings',
                 'User_Edit_Form_Fixer',
+                'Post_Edit_Form_Fixer',
             ],
         ],
     ];
@@ -34,13 +35,6 @@ final class Plugin extends Abstract_Plugin {
 
     public static function dependencies() {
         return self::$dependencies;
-    }
-
-    public function __construct() {
-        parent::__construct();
-        if ( self::is_dependencies_satisfied() ) {
-            require Plugin::plugin_dir( 'includes/get_avatar.php' );
-        }
     }
 
     public function classes_to_load() {
