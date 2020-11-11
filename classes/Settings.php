@@ -25,7 +25,7 @@ class Settings extends Abstract_Settings {
             'min' => 1,
             'default' => '',
             'label' => __( "Default author portrait", 'kntnt-author' ),
-            'description' => __( 'ID of attachment with default author portrait.', 'kntnt-author' ),
+            'description' => __( 'Enter attachment ID for default author portrait.', 'kntnt-author' ),
         ];
 
         $fields['submit'] = [
