@@ -27,11 +27,6 @@ class User_Edit_Form_Fixer {
 
                 ob_start( function ( $content ) {
 
-                    // Remove the section with personal options.
-                    $start = '<h2>' . __( 'Personal Options' ) . '</h2>';
-                    $stop = '<h2>' . __( 'Name' ) . '</h2>';
-                    $content = preg_replace( "`$start.*(?=$stop)`s", '', $content, 1 );
-
                     // Remove the section about the user
                     $start = '<h2>(?:' . __( 'About Yourself' ) . '|' . __( 'About the user' ) . ')</h2>';
                     $stop = '<h2>' . __( 'Account Management' ) . '</h2>';
