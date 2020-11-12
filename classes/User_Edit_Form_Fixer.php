@@ -9,11 +9,20 @@ class User_Edit_Form_Fixer {
     private $use_description_as_default = true;
 
     public function run() {
+
+        // Remove the section about the user
         add_action( 'user_edit_form_tag', [ $this, 'start' ] );
         add_action( 'show_user_profile', [ $this, 'stop' ] );
         add_action( 'edit_user_profile', [ $this, 'stop' ] );
+
+        // Sync biography field with user's description.
         add_action( 'acf/save_post', [ $this, 'save_post' ], 20, 1 );
         add_action( 'acf/load_value/name=biography', [ $this, 'load_value' ], 5, 3 );
+
+        // Allow HTML in the biography field.
+        remove_filter( 'pre_user_description', 'wp_filter_kses' );
+        add_filter( 'pre_user_description', 'wp_filter_post_kses' );
+
     }
 
     public function start() {
