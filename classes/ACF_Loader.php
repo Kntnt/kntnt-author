@@ -57,7 +57,7 @@ class ACF_Loader {
                     'placeholder' => '',
                     'maxlength' => '',
                     'rows' => '',
-                    'new_lines' => '',
+                    'new_lines' => 'wpautop',
                 ],
             ],
             'location' => array_map( function ( $role ) {
